@@ -1,0 +1,14 @@
+node_modules/
+.next/
+out/
+.env
+.env.local
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+
+# Documents de travail — hors du site publié.
+# Le dossier de sponsoring contient les paliers et les montants en CHF :
+# à ne pas pousser sur un dépôt public.
+Sponsoring_Doc.pdf
+branding-guidelines.html

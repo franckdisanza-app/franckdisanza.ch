@@ -1,0 +1,189 @@
+{
+  "locale": "fr",
+  "site": {
+    "name": "Franck Di Sanza",
+    "title": "Franck Di Sanza — Lanceur de javelot suisse",
+    "description": "Franck Di Sanza, athlète suisse spécialisé dans le lancer du javelot. Record personnel de 78,59 m. Objectif : Jeux Olympiques de Los Angeles 2028.",
+    "url": "https://franckdisanza.ch"
+  },
+  "nav": {
+    "links": [
+      {
+        "label": "Accueil",
+        "href": "/"
+      },
+      {
+        "label": "Partenariat",
+        "href": "/sponsor"
+      }
+    ],
+    "cta": {
+      "label": "Devenir partenaire",
+      "href": "/sponsor"
+    },
+    "menuOpen": "Ouvrir le menu",
+    "menuClose": "Fermer le menu"
+  },
+  "hero": {
+    "name": "Franck Di Sanza",
+    "discipline": "Athlète suisse — Lanceur de javelot",
+    "intro": "4e meilleur performeur suisse de tous les temps. Objectif : les Jeux Olympiques de Los Angeles.",
+    "record": {
+      "value": "78,59",
+      "unit": "m",
+      "label": "Record personnel",
+      "meta": "Offenburg — 21.06.2026"
+    },
+    "ctaPrimary": {
+      "label": "Devenir partenaire",
+      "href": "/sponsor"
+    },
+    "ctaSecondary": {
+      "label": "Voir les performances",
+      "href": "#performances"
+    },
+    "image": {
+      "src": "/images/hero-offenburg.jpg",
+      "alt": "Franck Di Sanza en pleine action lors du concours d’Offenburg",
+      "placeholder": "Image hero — plein cadre, format large (16:9)"
+    }
+  },
+  "about": {
+    "num": "01",
+    "eyebrow": "Profil",
+    "facts": [
+      {
+        "label": "Discipline",
+        "value": "Lancer du javelot",
+        "note": ""
+      },
+      {
+        "label": "Âge",
+        "value": "26 ans",
+        "note": ""
+      },
+      {
+        "label": "Club",
+        "value": "LAC TVU Unterstrass",
+        "note": ""
+      },
+      {
+        "label": "Entraîneur",
+        "value": "Terry McHugh",
+        "note": "Entraîneur national suisse"
+      },
+      {
+        "label": "Base d’entraînement",
+        "value": "Zurich, Suisse",
+        "note": ""
+      },
+      {
+        "label": "Origine",
+        "value": "Rolle, canton de Vaud",
+        "note": ""
+      },
+      {
+        "label": "Ancien club",
+        "value": "COVA Nyon",
+        "note": ""
+      }
+    ],
+    "image": {
+      "src": "/images/portrait.jpg",
+      "alt": "Franck Di Sanza au moment du lancer, Madrid 2025",
+      "placeholder": "Portrait / action — format vertical (3:4)"
+    }
+  },
+  "performance": {
+    "num": "02",
+    "eyebrow": "Mes performances",
+    "statsTitle": "Classements & titres",
+    "stats": [
+      {
+        "value": "2e",
+        "label": "Classement Suisse 2026"
+      },
+      {
+        "value": "27e",
+        "label": "Classement Europe 2026"
+      },
+      {
+        "value": "49e",
+        "label": "Classement Monde 2026"
+      },
+      {
+        "value": "4e",
+        "label": "Classement Suisse All-Time"
+      },
+      {
+        "value": "4×",
+        "label": "Titre de Champion Suisse"
+      },
+      {
+        "value": "6×",
+        "label": "Sélection en Équipe Suisse"
+      }
+    ]
+  },
+  "homeCta": {
+    "eyebrow": "Devenir partenaire",
+    "title": "Construire ensemble le chemin vers les Jeux Olympiques",
+    "text": "Le projet est ouvert aux entreprises qui souhaitent s’associer à une aventure sportive suisse, locale et ambitieuse.",
+    "cta": {
+      "label": "Devenir partenaire",
+      "href": "/sponsor"
+    },
+    "image": {
+      "src": "/images/partenaire.jpg",
+      "alt": "Franck Di Sanza en pleine action lors du concours d’Offenburg",
+      "placeholder": "Image verticale — compétition (4:5)"
+    }
+  },
+  "sponsor": {
+    "form": {
+      "eyebrow": "Contact",
+      "text": "Une question, une idée de collaboration ou une demande de dossier détaillé ? Écrivez-moi, je réponds personnellement.",
+      "fields": {
+        "name": {
+          "label": "Nom et prénom",
+          "placeholder": "Jean Dupont"
+        },
+        "company": {
+          "label": "Entreprise",
+          "placeholder": "Nom de l’entreprise (facultatif)"
+        },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "jean.dupont@entreprise.ch"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Votre message…"
+        }
+      },
+      "submit": "Envoyer le message",
+      "submitting": "Envoi en cours…",
+      "successTitle": "Message envoyé",
+      "successText": "Merci pour votre message. Je vous répondrai dans les meilleurs délais.",
+      "errorText": "L’envoi a échoué. Vous pouvez m’écrire directement à franckdisanza@gmail.com.",
+      "mailtoNotice": "Votre logiciel de messagerie va s’ouvrir avec le message pré-rempli.",
+      "requiredError": "Merci de remplir les champs obligatoires.",
+      "emailError": "Merci d’indiquer une adresse e-mail valide.",
+      "required": "obligatoire"
+    }
+  },
+  "contact": {
+    "email": "franckdisanza@gmail.com",
+    "instagram": {
+      "handle": "@franckdisanza",
+      "url": "https://www.instagram.com/franckdisanza/"
+    }
+  },
+  "footer": {
+    "tagline": "Athlète suisse — Lanceur de javelot",
+    "location": "Zurich, Suisse",
+    "contactTitle": "Contact",
+    "followTitle": "Suivre",
+    "rights": "Tous droits réservés."
+  }
+}
