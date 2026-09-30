@@ -1,9 +1,9 @@
 import Photo from '@/components/Photo';
 import { getContent } from '@/lib/content';
+import type { Locale } from '@/lib/i18n';
 
-const c = getContent();
-
-export default function About() {
+export default function About({ locale }: { locale: Locale }) {
+  const c = getContent(locale);
   const a = c.about;
 
   return (

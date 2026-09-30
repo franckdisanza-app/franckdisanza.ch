@@ -2,10 +2,9 @@
 
 import { useState } from 'react';
 
-import { getContent } from '@/lib/content';
+import type { Content } from '@/lib/content';
 
-const c = getContent();
-const f = c.sponsor.form;
+type Form = Content['sponsor']['form'];
 
 /**
  * Endpoint Formspree. L'identifiant du formulaire est public par nature (il
@@ -22,10 +21,11 @@ type Status = 'idle' | 'sending' | 'sent' | 'mailto' | 'error';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 // Le formulaire est posé sur fond noir : champs transparents, bordures claires.
+// 16 px sur mobile : en dessous, Safari iOS zoome sur le champ à la saisie.
 const inputClass =
-  'w-full rounded-[2px] border border-blanc/20 bg-blanc/5 px-4 py-3 text-sm text-blanc placeholder:text-gris-moyen transition-colors focus:border-blanc focus:bg-blanc/10 focus:outline-none';
+  'w-full rounded-[2px] border border-blanc/20 bg-blanc/5 px-4 py-3 text-base text-blanc placeholder:text-gris-moyen transition-colors focus:border-blanc focus:bg-blanc/10 focus:outline-none md:text-sm';
 
-export default function ContactForm() {
+export default function ContactForm({ form: f, email: contactEmail }: { form: Form; email: string }) {
   const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState('');
 
@@ -56,17 +56,20 @@ export default function ContactForm() {
 
     setError('');
 
+    // Sujet dans la langue du visiteur : on sait d'un coup d'œil dans quelle
+    // langue répondre (« Partenariat », « Partnership », « Partnerschaft »).
+    const subject = `${f.subject} — ${name}${company ? ` (${company})` : ''}`;
+
     if (!ENDPOINT) {
-      const subject = `Partenariat — ${name}${company ? ` (${company})` : ''}`;
       const body = [
-        `Nom : ${name}`,
-        `Entreprise : ${company || '—'}`,
-        `E-mail : ${email}`,
+        `${f.fields.name.label}: ${name}`,
+        `${f.fields.company.label}: ${company || '—'}`,
+        `${f.fields.email.label}: ${email}`,
         '',
         message,
       ].join('\n');
       setStatus('mailto');
-      window.location.href = `mailto:${c.contact.email}?subject=${encodeURIComponent(
+      window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(
         subject,
       )}&body=${encodeURIComponent(body)}`;
       return;
@@ -82,7 +85,7 @@ export default function ContactForm() {
           company: company || '—',
           email,
           message,
-          _subject: `Partenariat — ${name}${company ? ` (${company})` : ''}`,
+          _subject: subject,
         }),
       });
       if (!response.ok) throw new Error(String(response.status));
@@ -112,8 +115,10 @@ export default function ContactForm() {
         </label>
       </p>
 
-      <div className="grid gap-5 sm:grid-cols-2">
-        <Field id="name" label={f.fields.name.label} required>
+      {/* Nom et entreprise côte à côte quand la place le permet. Entre 1024 et
+          1280 px, le formulaire partage la largeur avec le texte : on empile. */}
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+        <Field id="name" label={f.fields.name.label} requiredLabel={f.required}>
           <input
             id="name"
             name="name"
@@ -137,7 +142,7 @@ export default function ContactForm() {
         </Field>
       </div>
 
-      <Field id="email" label={f.fields.email.label} required>
+      <Field id="email" label={f.fields.email.label} requiredLabel={f.required}>
         <input
           id="email"
           name="email"
@@ -149,7 +154,7 @@ export default function ContactForm() {
         />
       </Field>
 
-      <Field id="message" label={f.fields.message.label} required>
+      <Field id="message" label={f.fields.message.label} requiredLabel={f.required}>
         <textarea
           id="message"
           name="message"
@@ -165,10 +170,10 @@ export default function ContactForm() {
           {status === 'sending' ? f.submitting : f.submit}
         </button>
         <a
-          href={`mailto:${c.contact.email}`}
+          href={`mailto:${contactEmail}`}
           className="selectable text-sm text-gris-moyen underline-offset-4 transition-colors hover:text-blanc hover:underline"
         >
-          {c.contact.email}
+          {contactEmail}
         </a>
       </div>
 
@@ -180,15 +185,16 @@ export default function ContactForm() {
   );
 }
 
+/** Champ avec libellé ; `requiredLabel` marque le champ obligatoire d'une étoile. */
 function Field({
   id,
   label,
-  required,
+  requiredLabel,
   children,
 }: {
   id: string;
   label: string;
-  required?: boolean;
+  requiredLabel?: string;
   children: React.ReactNode;
 }) {
   return (
@@ -198,8 +204,8 @@ function Field({
         className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.14em] text-gris-moyen"
       >
         {label}
-        {required && (
-          <span className="ml-1 text-rouge" title={f.required}>
+        {requiredLabel && (
+          <span className="ml-1 text-rouge" title={requiredLabel}>
             *
           </span>
         )}

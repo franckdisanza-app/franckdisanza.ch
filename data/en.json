@@ -1,1 +1,198 @@
-{}
+{
+  "locale": "en",
+  "site": {
+    "name": "Franck Di Sanza",
+    "title": "Franck Di Sanza — Swiss javelin thrower",
+    "description": "Franck Di Sanza, Swiss athlete specialising in the javelin throw. Personal best of 78.59 m. Goal: the 2028 Olympic Games in Los Angeles.",
+    "url": "https://franckdisanza.ch"
+  },
+  "nav": {
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Partnership",
+        "href": "/sponsor"
+      }
+    ],
+    "cta": {
+      "label": "Become a partner",
+      "href": "/sponsor"
+    },
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "mainLabel": "Main navigation",
+    "mobileLabel": "Mobile navigation",
+    "languageLabel": "Change language"
+  },
+  "hero": {
+    "name": "Franck Di Sanza",
+    "discipline": "Swiss athlete — Javelin thrower",
+    "intro": "4th-best Swiss performer of all time. Goal: the Olympic Games in Los Angeles.",
+    "record": {
+      "value": "78.59",
+      "unit": "m",
+      "label": "Personal best",
+      "meta": "Offenburg — 21 June 2026"
+    },
+    "ctaPrimary": {
+      "label": "Become a partner",
+      "href": "/sponsor"
+    },
+    "ctaSecondary": {
+      "label": "View results",
+      "href": "#performances"
+    },
+    "image": {
+      "src": "/images/hero-offenburg.jpg",
+      "alt": "Franck Di Sanza in action at the Offenburg meeting",
+      "placeholder": "Hero image — full bleed, wide format (16:9)"
+    }
+  },
+  "about": {
+    "num": "01",
+    "eyebrow": "Profile",
+    "facts": [
+      {
+        "label": "Discipline",
+        "value": "Javelin throw",
+        "note": ""
+      },
+      {
+        "label": "Age",
+        "value": "26",
+        "note": ""
+      },
+      {
+        "label": "Club",
+        "value": "LAC TVU Unterstrass",
+        "note": ""
+      },
+      {
+        "label": "Coach",
+        "value": "Terry McHugh",
+        "note": "Swiss national coach"
+      },
+      {
+        "label": "Training base",
+        "value": "Zurich, Switzerland",
+        "note": ""
+      },
+      {
+        "label": "Hometown",
+        "value": "Rolle, canton of Vaud",
+        "note": ""
+      },
+      {
+        "label": "Former club",
+        "value": "COVA Nyon",
+        "note": ""
+      }
+    ],
+    "image": {
+      "src": "/images/portrait.jpg",
+      "alt": "Franck Di Sanza mid-throw, Madrid 2025",
+      "placeholder": "Portrait / action — vertical format (3:4)"
+    }
+  },
+  "performance": {
+    "num": "02",
+    "eyebrow": "Results",
+    "statsTitle": "Rankings & titles",
+    "stats": [
+      {
+        "value": "2nd",
+        "label": "Swiss ranking 2026"
+      },
+      {
+        "value": "27th",
+        "label": "European ranking 2026"
+      },
+      {
+        "value": "49th",
+        "label": "World ranking 2026"
+      },
+      {
+        "value": "4th",
+        "label": "Swiss all-time list"
+      },
+      {
+        "value": "4×",
+        "label": "Swiss champion"
+      },
+      {
+        "value": "6×",
+        "label": "Swiss national team selection"
+      }
+    ]
+  },
+  "homeCta": {
+    "eyebrow": "Become a partner",
+    "title": "Building the road to the Olympic Games, together",
+    "text": "The project is open to companies that want to be part of an ambitious, local Swiss sporting adventure.",
+    "cta": {
+      "label": "Become a partner",
+      "href": "/sponsor"
+    },
+    "image": {
+      "src": "/images/partenaire.jpg",
+      "alt": "Franck Di Sanza in action at the Offenburg meeting",
+      "placeholder": "Vertical image — competition (4:5)"
+    }
+  },
+  "sponsor": {
+    "form": {
+      "eyebrow": "Contact",
+      "text": "A question, an idea for a collaboration or a request for the detailed partnership proposal? Write to me — I reply personally.",
+      "fields": {
+        "name": {
+          "label": "Full name",
+          "placeholder": "John Smith"
+        },
+        "company": {
+          "label": "Company",
+          "placeholder": "Company name (optional)"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "john.smith@company.com"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Your message…"
+        }
+      },
+      "submit": "Send message",
+      "submitting": "Sending…",
+      "successTitle": "Message sent",
+      "successText": "Thank you for your message. I will get back to you as soon as possible.",
+      "errorText": "Sending failed. You can write to me directly at franckdisanza@gmail.com.",
+      "mailtoNotice": "Your email app will open with the message pre-filled.",
+      "requiredError": "Please fill in the required fields.",
+      "emailError": "Please enter a valid email address.",
+      "required": "required",
+      "subject": "Partnership"
+    }
+  },
+  "contact": {
+    "email": "franckdisanza@gmail.com",
+    "instagram": {
+      "handle": "@franckdisanza",
+      "url": "https://www.instagram.com/franckdisanza/"
+    }
+  },
+  "footer": {
+    "tagline": "Swiss athlete — Javelin thrower",
+    "location": "Zurich, Switzerland",
+    "contactTitle": "Contact",
+    "followTitle": "Follow",
+    "rights": "All rights reserved."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "This page does not exist or has been moved.",
+    "cta": "Back to home"
+  }
+}

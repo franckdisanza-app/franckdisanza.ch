@@ -22,39 +22,70 @@ Puis ouvrir http://localhost:3000.
 
 ```
 app/
-  layout.tsx        en-tête, pied de page, polices, métadonnées
-  page.tsx          accueil : hero · profil · performances · CTA partenaire
-  sponsor/page.tsx  formulaire de contact partenariat
+  [locale]/
+    layout.tsx        en-tête, pied de page, polices, métadonnées
+    page.tsx          accueil : hero · profil · performances · CTA partenaire
+    sponsor/page.tsx  formulaire de contact partenariat
+    not-found.tsx     page 404, dans la langue de l'adresse
+  sitemap.ts, robots.ts
 components/
-  Hero.tsx          bandeau d'ouverture (nom, discipline, record)
+  Hero.tsx            bandeau d'ouverture (nom, discipline, record)
+  LanguageSwitcher.tsx  bouton de choix de la langue (en-tête)
   ...
 data/
-  fr.json           TOUT le contenu du site
-  en.json           version anglaise (vide pour l'instant)
+  fr.json             TOUT le contenu du site, en français (référence)
+  en.json             version anglaise
+  de.json             version allemande
 lib/
-  content.ts        chargement du contenu et gestion des langues
-public/images/      photos (voir le README du dossier)
+  content.ts          chargement du contenu
+  i18n.ts             liste des langues, liens par langue
+proxy.ts              sert le français sans préfixe d'URL
+public/images/        photos (voir le README du dossier)
 ```
+
+## Langues
+
+Le site existe en **français** (langue par défaut), **anglais** et **allemand** :
+
+| Page        | Français   | Anglais       | Allemand      |
+| ----------- | ---------- | ------------- | ------------- |
+| Accueil     | `/`        | `/en`         | `/de`         |
+| Partenariat | `/sponsor` | `/en/sponsor` | `/de/sponsor` |
+
+Le bouton de langue de l'en-tête (🌐 FR) mène à la même page dans l'autre
+langue. Un visiteur arrive toujours en français, sans redirection automatique
+selon la langue du navigateur. Chaque page annonce ses équivalents aux moteurs
+de recherche (balises `hreflang` et sitemap).
+
+`proxy.ts` sert les pages françaises sans préfixe : `/sponsor` affiche en interne
+`/fr/sponsor`, et `/fr/...` redirige vers l'adresse sans préfixe.
+
+L'allemand suit l'usage suisse : « ss » à la place de « ß » (« schliessen »).
 
 ## Modifier le contenu
 
-Tout le texte vit dans **`data/fr.json`** — aucun texte n'est écrit en dur dans
-les composants. Modifier ce fichier suffit à mettre le site à jour.
+Tout le texte vit dans **`data/fr.json`**, **`data/en.json`** et **`data/de.json`**.
+Aucun texte n'est écrit en dur dans les composants.
+
+Les trois fichiers ont **exactement la même structure**. Une modification doit
+donc être reportée dans les trois langues. `npm run typecheck` signale toute clé
+présente en français mais absente en anglais ou en allemand.
+
+Certaines valeurs ne sont pas du texte mais doivent aussi être identiques dans
+les trois fichiers : `src` des photos, `contact`, `site.url`.
+
+Pour ajouter une langue (l'italien par exemple) : créer `data/it.json` sur le
+modèle de `fr.json`, puis ajouter `'it'` dans `LOCALES` et `LANGUAGES`
+(`lib/i18n.ts`) et dans `dictionaries` (`lib/content.ts`).
 
 ## Ajouter les photos
 
 Déposer les fichiers dans `public/images/`, puis renseigner le champ `src` de
-l'emplacement correspondant dans `data/fr.json`. Voir
+l'emplacement correspondant dans les trois fichiers `data/*.json`. Voir
 [public/images/README.md](public/images/README.md).
 
 Tant qu'un `src` vaut `null`, une zone grise « Photo à ajouter » est affichée :
 aucune image générique n'est utilisée.
-
-## Ajouter l'anglais plus tard
-
-1. Copier `data/fr.json` vers `data/en.json` et traduire les valeurs.
-2. Le repli automatique vers le français disparaît dès que `en.json` est rempli.
-3. Ajouter le routage `/en` (segment `app/[locale]/`) si un site bilingue est souhaité.
 
 ## Formulaire de contact
 
@@ -87,7 +118,7 @@ Hébergement : **Vercel**. Domaine acheté chez **Infomaniak**.
 
 Chaque `git push` sur la branche principale met le site en ligne.
 
-Si le domaine change, mettre `site.url` à jour dans `data/fr.json` : il alimente
+Si le domaine change, mettre `site.url` à jour dans les trois fichiers `data/*.json` : il alimente
 les métadonnées de partage, le sitemap et robots.txt.
 
 ### Image de partage et favicon
@@ -103,5 +134,9 @@ https://www.linkedin.com/post-inspector/.
 ### Hébergeur statique (alternative)
 
 Décommenter `output: 'export'` et `images: { unoptimized: true }` dans
-`next.config.mjs`, puis publier le dossier `out/`. L'optimisation automatique des
-images est alors désactivée.
+`next.config.mjs`, supprimer `proxy.ts`, puis publier le dossier `out/`.
+L'optimisation automatique des images est alors désactivée.
+
+Sans `proxy.ts`, les pages françaises sont générées sous `out/fr/`. Il faut alors
+une règle de réécriture chez l'hébergeur (`.htaccess` sur Infomaniak) pour que
+`/` et `/sponsor` servent `/fr/` et `/fr/sponsor/`.

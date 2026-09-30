@@ -1,32 +1,35 @@
-import fr from '@/data/fr.json';
+import { notFound } from 'next/navigation';
+
+import de from '@/data/de.json';
 import en from '@/data/en.json';
+import fr from '@/data/fr.json';
+import { isLocale, type Locale } from '@/lib/i18n';
 
 /**
  * Contenu du site.
  *
- * Toute la copie vit dans `/data/<locale>.json` — aucun texte n'est écrit en dur
- * dans les composants. Pour ajouter l'anglais : remplir `/data/en.json` en
- * reprenant exactement la structure de `/data/fr.json`, rien d'autre à changer.
+ * Toute la copie vit dans `/data/<langue>.json` — aucun texte n'est écrit en dur
+ * dans les composants. Les trois fichiers ont exactement la même structure :
+ * le français fait référence, et `npm run typecheck` signale toute clé manquante
+ * dans `en.json` ou `de.json`.
+ *
+ * À n'importer que depuis des composants serveur : les composants client
+ * reçoivent le morceau de contenu dont ils ont besoin en props.
  */
 
-export const LOCALES = ['fr', 'en'] as const;
-export type Locale = (typeof LOCALES)[number];
-
-export const DEFAULT_LOCALE: Locale = 'fr';
-
-/** La forme du contenu est dérivée du français, qui fait référence. */
 export type Content = typeof fr;
 
-const dictionaries: Record<Locale, unknown> = { fr, en };
+const dictionaries: Record<Locale, Content> = { fr, en, de };
 
-function isComplete(dict: unknown): dict is Content {
-  return typeof dict === 'object' && dict !== null && Object.keys(dict).length > 0;
+export function getContent(locale: Locale): Content {
+  return dictionaries[locale];
 }
 
-/** Renvoie le contenu de la locale demandée, avec repli sur le français. */
-export function getContent(locale: Locale = DEFAULT_LOCALE): Content {
-  const dict = dictionaries[locale];
-  return isComplete(dict) ? dict : (fr as Content);
+/** Valide le paramètre `[locale]` d'une route ; 404 s'il est inconnu. */
+export async function resolveLocale(params: Promise<{ locale: string }>): Promise<Locale> {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+  return locale;
 }
 
 export type Link = { label: string; href: string };

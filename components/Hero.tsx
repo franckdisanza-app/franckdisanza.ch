@@ -2,10 +2,10 @@ import Link from 'next/link';
 
 import Photo from '@/components/Photo';
 import { getContent } from '@/lib/content';
+import { localizeHref, type Locale } from '@/lib/i18n';
 
-const c = getContent();
-
-export default function Hero() {
+export default function Hero({ locale }: { locale: Locale }) {
+  const c = getContent(locale);
   const h = c.hero;
 
   return (
@@ -39,11 +39,12 @@ export default function Hero() {
             <p className="mt-5 text-base text-gris-clair md:text-lg">{h.discipline}</p>
             <p className="mt-3 text-sm text-gris-moyen">{h.intro}</p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href={h.ctaPrimary.href} className="btn btn-primary">
+            {/* Mobile : boutons pleine largeur, empilés ; côte à côte dès 640 px. */}
+            <div className="mt-8 grid gap-3 sm:flex sm:flex-wrap">
+              <Link href={localizeHref(locale, h.ctaPrimary.href)} className="btn btn-primary">
                 {h.ctaPrimary.label}
               </Link>
-              <Link href={h.ctaSecondary.href} className="btn btn-outline text-blanc">
+              <Link href={localizeHref(locale, h.ctaSecondary.href)} className="btn btn-outline text-blanc">
                 {h.ctaSecondary.label}
               </Link>
             </div>

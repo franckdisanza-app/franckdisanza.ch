@@ -1,6 +1,7 @@
 # Photos du site
 
-Trois emplacements, trois fichiers. Ils sont branchés dans `/data/fr.json`.
+Trois emplacements, trois fichiers. Ils sont branchés dans `/data/fr.json`,
+`/data/en.json` et `/data/de.json` (même `src` dans les trois fichiers).
 
 | Fichier                | Où ça s'affiche             | Format servi     | Origine                        |
 | ---------------------- | --------------------------- | ---------------- | ------------------------------ |
@@ -14,7 +15,7 @@ disponible. Sur un grand écran, le navigateur l'agrandit et l'image perd un peu
 de netteté. Si une version haute résolution est retrouvée, la déposer ici sous le
 même nom — rien d'autre à changer. `hero-nicosia.jpg` est le hero précédent,
 conservé comme repli : pour l'utiliser, remettre son chemin dans
-`hero.image.src` de `/data/fr.json`.
+`hero.image.src` des trois fichiers `/data/*.json`.
 
 Les originaux pleine résolution sont dans `~/Downloads`. Les fichiers d'ici sont
 des recadrages compressés — ne pas les remplacer par les originaux tels quels
@@ -23,7 +24,8 @@ des recadrages compressés — ne pas les remplacer par les originaux tels quels
 ## Remplacer une photo
 
 1. déposer le nouveau fichier ici, au bon ratio (voir tableau) ;
-2. mettre à jour `src` **et** `alt` dans `/data/fr.json`.
+2. mettre à jour `src` **et** `alt` dans `/data/fr.json`, `/data/en.json` et
+   `/data/de.json` (le texte `alt` se traduit, le `src` reste le même).
 
 Si `src` repasse à `null`, une zone grise « Photo à ajouter » s'affiche à la
 place : le site ne montre jamais d'image générique.

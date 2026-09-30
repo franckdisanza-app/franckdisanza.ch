@@ -1,10 +1,11 @@
 import Link from 'next/link';
 
 import { getContent } from '@/lib/content';
+import { localizeHref, type Locale } from '@/lib/i18n';
 
-const c = getContent();
+export default function Footer({ locale }: { locale: Locale }) {
+  const c = getContent(locale);
 
-export default function Footer() {
   return (
     <footer className="border-t border-blanc/10 bg-noir text-blanc">
       <div className="wrap grid gap-10 py-14 md:grid-cols-3 md:py-20">
@@ -47,7 +48,7 @@ export default function Footer() {
         <p>
           © {new Date().getFullYear()} {c.site.name}. {c.footer.rights}
         </p>
-        <Link href={c.nav.cta.href} className="transition-colors hover:text-blanc">
+        <Link href={localizeHref(locale, c.nav.cta.href)} className="transition-colors hover:text-blanc">
           {c.nav.cta.label}
         </Link>
       </div>

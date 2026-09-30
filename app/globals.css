@@ -26,7 +26,10 @@
   }
 
   body {
-    background-color: var(--color-blanc);
+    /* Chaque section porte son propre fond. Le noir du body ne se voit que
+       sous une page plus courte que l'écran (tablette en portrait) ou lors du
+       rebond de défilement sur iOS : il prolonge alors le pied de page. */
+    background-color: var(--color-noir);
     color: var(--color-noir);
     font-family: var(--font-sans);
     line-height: 1.55;

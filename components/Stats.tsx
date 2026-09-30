@@ -1,8 +1,8 @@
 import { getContent } from '@/lib/content';
+import type { Locale } from '@/lib/i18n';
 
-const c = getContent();
-
-export default function Stats() {
+export default function Stats({ locale }: { locale: Locale }) {
+  const c = getContent(locale);
   const p = c.performance;
 
   return (
@@ -19,11 +19,11 @@ export default function Stats() {
 
         <dl className="mt-10 grid grid-cols-2 gap-px border border-blanc/10 bg-blanc/10 md:mt-14 lg:grid-cols-3">
           {p.stats.map((s) => (
-            <div key={s.label} className="bg-anthracite px-5 py-8 text-center md:px-6 md:py-12">
+            <div key={s.label} className="bg-anthracite px-3 py-8 text-center sm:px-5 md:px-6 md:py-12">
               <dt className="sr-only">{s.label}</dt>
               <dd>
                 <span className="num block text-[clamp(2rem,7vw,3.25rem)]">{s.value}</span>
-                <span className="mt-3 block text-[10px] uppercase tracking-[0.1em] text-gris-moyen md:text-[11px]">
+                <span className="mt-3 block hyphens-auto text-[10px] uppercase tracking-[0.1em] text-gris-moyen wrap-break-word md:text-[11px]">
                   {s.label}
                 </span>
               </dd>

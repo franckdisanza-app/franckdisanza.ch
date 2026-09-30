@@ -1,17 +1,27 @@
 import type { Metadata } from 'next';
 
 import ContactForm from '@/components/ContactForm';
-import { getContent } from '@/lib/content';
+import { getContent, resolveLocale } from '@/lib/content';
+import { alternates } from '@/lib/i18n';
 
-const c = getContent();
-const f = c.sponsor.form;
+type Props = { params: Promise<{ locale: string }> };
 
-export const metadata: Metadata = {
-  title: 'Devenir partenaire',
-  description: f.text,
-};
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const locale = await resolveLocale(params);
+  const c = getContent(locale);
 
-export default function SponsorPage() {
+  return {
+    title: c.nav.cta.label,
+    description: c.sponsor.form.text,
+    alternates: alternates(locale, '/sponsor'),
+  };
+}
+
+export default async function SponsorPage({ params }: Props) {
+  const locale = await resolveLocale(params);
+  const c = getContent(locale);
+  const f = c.sponsor.form;
+
   return (
     <section id="contact" className="bg-noir text-blanc">
       <div className="wrap grid gap-12 pb-20 pt-32 md:pb-28 md:pt-44 lg:grid-cols-[0.85fr_1fr] lg:gap-20">
@@ -25,7 +35,7 @@ export default function SponsorPage() {
           <div className="mt-10 space-y-4 border-t border-blanc/15 pt-8 text-sm">
             <p>
               <span className="block text-[10px] font-semibold uppercase tracking-[0.14em] text-gris-moyen">
-                E-mail
+                {f.fields.email.label}
               </span>
               <a
                 href={`mailto:${c.contact.email}`}
@@ -50,7 +60,7 @@ export default function SponsorPage() {
           </div>
         </div>
 
-        <ContactForm />
+        <ContactForm form={f} email={c.contact.email} />
       </div>
     </section>
   );

@@ -17,10 +17,10 @@ type Props = {
 /**
  * Emplacement photo.
  *
- * Tant que `image.src` est `null` dans `/data/fr.json`, une zone grise
+ * Tant que `image.src` est `null` dans `/data/*.json`, une zone grise
  * explicitement identifiée est affichée. Aucune image générique n'est utilisée.
  * Pour publier une vraie photo : la déposer dans `/public/images/` puis
- * renseigner `"src": "/images/mon-fichier.jpg"` dans le fichier de contenu.
+ * renseigner `"src": "/images/mon-fichier.jpg"` dans les fichiers de contenu.
  */
 export default function Photo({
   image,

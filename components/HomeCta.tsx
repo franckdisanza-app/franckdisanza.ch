@@ -2,10 +2,10 @@ import Link from 'next/link';
 
 import Photo from '@/components/Photo';
 import { getContent } from '@/lib/content';
+import { localizeHref, type Locale } from '@/lib/i18n';
 
-const c = getContent();
-
-export default function HomeCta() {
+export default function HomeCta({ locale }: { locale: Locale }) {
+  const c = getContent(locale);
   const h = c.homeCta;
 
   return (
@@ -18,7 +18,7 @@ export default function HomeCta() {
           </h2>
           <div className="rule-accent mt-7" />
           <p className="mt-6 max-w-md text-[15px] text-gris-clair md:text-base">{h.text}</p>
-          <Link href={h.cta.href} className="btn btn-primary mt-9">
+          <Link href={localizeHref(locale, h.cta.href)} className="btn btn-primary mt-9">
             {h.cta.label}
           </Link>
         </div>

@@ -1,0 +1,198 @@
+{
+  "locale": "de",
+  "site": {
+    "name": "Franck Di Sanza",
+    "title": "Franck Di Sanza — Schweizer Speerwerfer",
+    "description": "Franck Di Sanza, Schweizer Leichtathlet mit Spezialgebiet Speerwurf. Persönliche Bestleistung: 78,59 m. Ziel: die Olympischen Spiele 2028 in Los Angeles.",
+    "url": "https://franckdisanza.ch"
+  },
+  "nav": {
+    "links": [
+      {
+        "label": "Startseite",
+        "href": "/"
+      },
+      {
+        "label": "Partnerschaft",
+        "href": "/sponsor"
+      }
+    ],
+    "cta": {
+      "label": "Partner werden",
+      "href": "/sponsor"
+    },
+    "menuOpen": "Menü öffnen",
+    "menuClose": "Menü schliessen",
+    "mainLabel": "Hauptnavigation",
+    "mobileLabel": "Mobile Navigation",
+    "languageLabel": "Sprache wechseln"
+  },
+  "hero": {
+    "name": "Franck Di Sanza",
+    "discipline": "Schweizer Athlet — Speerwerfer",
+    "intro": "Nr. 4 der ewigen Schweizer Bestenliste. Ziel: die Olympischen Spiele in Los Angeles.",
+    "record": {
+      "value": "78,59",
+      "unit": "m",
+      "label": "Persönliche Bestleistung",
+      "meta": "Offenburg — 21.06.2026"
+    },
+    "ctaPrimary": {
+      "label": "Partner werden",
+      "href": "/sponsor"
+    },
+    "ctaSecondary": {
+      "label": "Leistungen ansehen",
+      "href": "#performances"
+    },
+    "image": {
+      "src": "/images/hero-offenburg.jpg",
+      "alt": "Franck Di Sanza in Aktion beim Wettkampf in Offenburg",
+      "placeholder": "Hero-Bild — randlos, Querformat (16:9)"
+    }
+  },
+  "about": {
+    "num": "01",
+    "eyebrow": "Profil",
+    "facts": [
+      {
+        "label": "Disziplin",
+        "value": "Speerwurf",
+        "note": ""
+      },
+      {
+        "label": "Alter",
+        "value": "26 Jahre",
+        "note": ""
+      },
+      {
+        "label": "Verein",
+        "value": "LAC TVU Unterstrass",
+        "note": ""
+      },
+      {
+        "label": "Trainer",
+        "value": "Terry McHugh",
+        "note": "Schweizer Nationaltrainer"
+      },
+      {
+        "label": "Trainingsort",
+        "value": "Zürich, Schweiz",
+        "note": ""
+      },
+      {
+        "label": "Herkunft",
+        "value": "Rolle, Kanton Waadt",
+        "note": ""
+      },
+      {
+        "label": "Ehemaliger Verein",
+        "value": "COVA Nyon",
+        "note": ""
+      }
+    ],
+    "image": {
+      "src": "/images/portrait.jpg",
+      "alt": "Franck Di Sanza beim Abwurf, Madrid 2025",
+      "placeholder": "Porträt / Action — Hochformat (3:4)"
+    }
+  },
+  "performance": {
+    "num": "02",
+    "eyebrow": "Meine Leistungen",
+    "statsTitle": "Ranglisten & Titel",
+    "stats": [
+      {
+        "value": "2.",
+        "label": "Schweizer Rangliste 2026"
+      },
+      {
+        "value": "27.",
+        "label": "Europäische Rangliste 2026"
+      },
+      {
+        "value": "49.",
+        "label": "Weltrangliste 2026"
+      },
+      {
+        "value": "4.",
+        "label": "Ewige Schweizer Bestenliste"
+      },
+      {
+        "value": "4×",
+        "label": "Schweizer Meistertitel"
+      },
+      {
+        "value": "6×",
+        "label": "Selektion ins Schweizer Nationalteam"
+      }
+    ]
+  },
+  "homeCta": {
+    "eyebrow": "Partner werden",
+    "title": "Gemeinsam den Weg zu den Olympischen Spielen ebnen",
+    "text": "Das Projekt steht Unternehmen offen, die Teil eines ambitionierten, lokal verankerten Schweizer Sportprojekts werden möchten.",
+    "cta": {
+      "label": "Partner werden",
+      "href": "/sponsor"
+    },
+    "image": {
+      "src": "/images/partenaire.jpg",
+      "alt": "Franck Di Sanza in Aktion beim Wettkampf in Offenburg",
+      "placeholder": "Hochformat — Wettkampf (4:5)"
+    }
+  },
+  "sponsor": {
+    "form": {
+      "eyebrow": "Kontakt",
+      "text": "Eine Frage, eine Idee für eine Zusammenarbeit oder Interesse am ausführlichen Partnerschaftsdossier? Schreiben Sie mir — ich antworte persönlich.",
+      "fields": {
+        "name": {
+          "label": "Vor- und Nachname",
+          "placeholder": "Max Muster"
+        },
+        "company": {
+          "label": "Unternehmen",
+          "placeholder": "Firmenname (optional)"
+        },
+        "email": {
+          "label": "E-Mail",
+          "placeholder": "max.muster@unternehmen.ch"
+        },
+        "message": {
+          "label": "Nachricht",
+          "placeholder": "Ihre Nachricht…"
+        }
+      },
+      "submit": "Nachricht senden",
+      "submitting": "Wird gesendet…",
+      "successTitle": "Nachricht gesendet",
+      "successText": "Vielen Dank für Ihre Nachricht. Ich melde mich so bald wie möglich bei Ihnen.",
+      "errorText": "Das Senden ist fehlgeschlagen. Sie können mir direkt an franckdisanza@gmail.com schreiben.",
+      "mailtoNotice": "Ihr E-Mail-Programm öffnet sich mit der vorausgefüllten Nachricht.",
+      "requiredError": "Bitte füllen Sie die Pflichtfelder aus.",
+      "emailError": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "required": "Pflichtfeld",
+      "subject": "Partnerschaft"
+    }
+  },
+  "contact": {
+    "email": "franckdisanza@gmail.com",
+    "instagram": {
+      "handle": "@franckdisanza",
+      "url": "https://www.instagram.com/franckdisanza/"
+    }
+  },
+  "footer": {
+    "tagline": "Schweizer Athlet — Speerwerfer",
+    "location": "Zürich, Schweiz",
+    "contactTitle": "Kontakt",
+    "followTitle": "Folgen",
+    "rights": "Alle Rechte vorbehalten."
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "text": "Diese Seite existiert nicht oder wurde verschoben.",
+    "cta": "Zur Startseite"
+  }
+}

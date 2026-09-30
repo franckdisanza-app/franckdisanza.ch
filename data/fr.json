@@ -22,7 +22,10 @@
       "href": "/sponsor"
     },
     "menuOpen": "Ouvrir le menu",
-    "menuClose": "Fermer le menu"
+    "menuClose": "Fermer le menu",
+    "mainLabel": "Navigation principale",
+    "mobileLabel": "Navigation mobile",
+    "languageLabel": "Changer de langue"
   },
   "hero": {
     "name": "Franck Di Sanza",
@@ -169,7 +172,8 @@
       "mailtoNotice": "Votre logiciel de messagerie va s’ouvrir avec le message pré-rempli.",
       "requiredError": "Merci de remplir les champs obligatoires.",
       "emailError": "Merci d’indiquer une adresse e-mail valide.",
-      "required": "obligatoire"
+      "required": "obligatoire",
+      "subject": "Partenariat"
     }
   },
   "contact": {
@@ -185,5 +189,10 @@
     "contactTitle": "Contact",
     "followTitle": "Suivre",
     "rights": "Tous droits réservés."
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "text": "Cette page n’existe pas ou a été déplacée.",
+    "cta": "Retour à l’accueil"
   }
 }

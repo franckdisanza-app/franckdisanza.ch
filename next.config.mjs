@@ -11,7 +11,8 @@ const nextConfig = {
   // l'optimisation d'images de next/image.
   //
   // Pour un export purement statique (hébergement type Infomaniak / S3 / GitHub Pages),
-  // décommenter les deux lignes ci-dessous :
+  // décommenter les deux lignes ci-dessous et supprimer `proxy.ts` (voir README,
+  // « Hébergeur statique ») :
   //
   // output: 'export',
   // images: { unoptimized: true },
