@@ -109,13 +109,6 @@ export default function Nav({ locale, nav }: Props) {
               {l.label}
             </Link>
           ))}
-          <Link
-            href={localizeHref(locale, nav.cta.href)}
-            onClick={() => setOpen(false)}
-            className="font-display text-2xl font-extrabold uppercase tracking-tight text-rouge"
-          >
-            {nav.cta.label}
-          </Link>
         </nav>
       </div>
     </header>

@@ -7,6 +7,7 @@ const c = getContent(DEFAULT_LOCALE);
 
 const PAGES = [
   { path: '/', priority: 1 },
+  { path: '/partners', priority: 0.8 },
   { path: '/sponsor', priority: 0.8 },
 ];
 

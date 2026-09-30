@@ -13,7 +13,11 @@
         "href": "/"
       },
       {
-        "label": "Partnership",
+        "label": "Partners",
+        "href": "/partners"
+      },
+      {
+        "label": "Contact",
         "href": "/sponsor"
       }
     ],
@@ -140,6 +144,18 @@
       "src": "/images/partenaire.jpg",
       "alt": "Franck Di Sanza in action at the Offenburg meeting",
       "placeholder": "Vertical image — competition (4:5)"
+    }
+  },
+  "partners": {
+    "eyebrow": "Partners",
+    "title": "Supporting me on the road to Los Angeles",
+    "text": "Thank you to the companies standing alongside me in this Olympic project.",
+    "visit": "Visit website",
+    "cta": {
+      "title": "Join the journey",
+      "text": "Associate your company with an ambitious Swiss sporting project.",
+      "label": "Become a partner",
+      "href": "/sponsor"
     }
   },
   "sponsor": {

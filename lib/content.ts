@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import de from '@/data/de.json';
 import en from '@/data/en.json';
 import fr from '@/data/fr.json';
+import partners from '@/data/partners.json';
 import { isLocale, type Locale } from '@/lib/i18n';
 
 /**
@@ -30,6 +31,45 @@ export async function resolveLocale(params: Promise<{ locale: string }>): Promis
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   return locale;
+}
+
+/**
+ * Partenaires.
+ *
+ * Ils vivent dans `/data/partners.json` et non dans les fichiers de langue : un
+ * partenaire s'ajoute à un seul endroit, ses textes dans les trois langues côte
+ * à côte. `npm run typecheck` signale une traduction manquante.
+ */
+type Localized = Record<Locale, string>;
+
+type PartnerEntry = {
+  name: string;
+  /** Logo dans `/public` (SVG ou PNG). `null` : le nom s'affiche à la place. */
+  logo: string | null;
+  /** Site du partenaire, dans chaque langue. */
+  url: Localized | null;
+  category: Localized;
+  text: Localized;
+};
+
+const partnerEntries: PartnerEntry[] = partners;
+
+export type Partner = {
+  name: string;
+  logo: string | null;
+  url: string | null;
+  category: string;
+  text: string;
+};
+
+export function getPartners(locale: Locale): Partner[] {
+  return partnerEntries.map((p) => ({
+    name: p.name,
+    logo: p.logo,
+    url: p.url?.[locale] ?? null,
+    category: p.category[locale],
+    text: p.text[locale],
+  }));
 }
 
 export type Link = { label: string; href: string };

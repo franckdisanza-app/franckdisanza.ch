@@ -25,6 +25,7 @@ app/
   [locale]/
     layout.tsx        en-tête, pied de page, polices, métadonnées
     page.tsx          accueil : hero · profil · performances · CTA partenaire
+    partners/page.tsx partenaires actuels (Kraftgras…)
     sponsor/page.tsx  formulaire de contact partenariat
     not-found.tsx     page 404, dans la langue de l'adresse
   sitemap.ts, robots.ts
@@ -36,6 +37,7 @@ data/
   fr.json             TOUT le contenu du site, en français (référence)
   en.json             version anglaise
   de.json             version allemande
+  partners.json       partenaires, textes dans les trois langues
 lib/
   content.ts          chargement du contenu
   i18n.ts             liste des langues, liens par langue
@@ -47,10 +49,11 @@ public/images/        photos (voir le README du dossier)
 
 Le site existe en **français** (langue par défaut), **anglais** et **allemand** :
 
-| Page        | Français   | Anglais       | Allemand      |
-| ----------- | ---------- | ------------- | ------------- |
-| Accueil     | `/`        | `/en`         | `/de`         |
-| Partenariat | `/sponsor` | `/en/sponsor` | `/de/sponsor` |
+| Page        | Français    | Anglais        | Allemand       |
+| ----------- | ----------- | -------------- | -------------- |
+| Accueil     | `/`         | `/en`          | `/de`          |
+| Partenaires | `/partners` | `/en/partners` | `/de/partners` |
+| Contact     | `/sponsor`  | `/en/sponsor`  | `/de/sponsor`  |
 
 Le bouton de langue de l'en-tête (🌐 FR) mène à la même page dans l'autre
 langue. Un visiteur arrive toujours en français, sans redirection automatique
@@ -77,6 +80,31 @@ les trois fichiers : `src` des photos, `contact`, `site.url`.
 Pour ajouter une langue (l'italien par exemple) : créer `data/it.json` sur le
 modèle de `fr.json`, puis ajouter `'it'` dans `LOCALES` et `LANGUAGES`
 (`lib/i18n.ts`) et dans `dictionaries` (`lib/content.ts`).
+
+## Partenaires
+
+La page `/partners` affiche les partenaires listés dans **`data/partners.json`**.
+Contrairement au reste du contenu, un partenaire ne s'écrit qu'à un seul
+endroit, avec ses textes en français, anglais et allemand côte à côte :
+
+```json
+{
+  "name": "Kraftgras",
+  "logo": "/images/partenaires/kraftgras.png",
+  "url": { "fr": "https://kraftgras.ch/fr", "en": "https://kraftgras.ch/en", "de": "https://kraftgras.ch" },
+  "category": { "fr": "Partenaire nutrition", "en": "Nutrition partner", "de": "Ernährungspartner" },
+  "text": { "fr": "…", "en": "…", "de": "…" }
+}
+```
+
+- **Ajouter un partenaire** : copier un bloc dans la liste et l'adapter. L'ordre
+  du fichier est l'ordre d'affichage.
+- **Logo** : déposer le fichier (SVG de préférence, sinon PNG sur fond
+  transparent) dans `public/images/partenaires/`, puis renseigner `logo`. Tant
+  que `logo` vaut `null`, le nom du partenaire s'affiche à la place.
+- **Pas de site** : mettre `"url": null`, le bouton « Visiter le site » disparaît.
+
+`npm run typecheck` signale une langue oubliée dans `category`, `text` ou `url`.
 
 ## Ajouter les photos
 
