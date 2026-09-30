@@ -49,7 +49,6 @@ type PartnerEntry = {
   /** Site du partenaire, dans chaque langue. */
   url: Localized | null;
   category: Localized;
-  text: Localized;
 };
 
 const partnerEntries: PartnerEntry[] = partners;
@@ -59,7 +58,6 @@ export type Partner = {
   logo: string | null;
   url: string | null;
   category: string;
-  text: string;
 };
 
 export function getPartners(locale: Locale): Partner[] {
@@ -68,7 +66,6 @@ export function getPartners(locale: Locale): Partner[] {
     logo: p.logo,
     url: p.url?.[locale] ?? null,
     category: p.category[locale],
-    text: p.text[locale],
   }));
 }
 

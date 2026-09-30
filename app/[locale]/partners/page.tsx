@@ -36,31 +36,32 @@ export default async function PartnersPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Un bloc par partenaire, empilés : la page tient avec un seul
-          partenaire comme avec dix. */}
+      {/* Une ligne par partenaire. Mobile : tout empilé. Tablette : logo à
+          gauche, nom et lien à droite. Ordinateur : logo · nom · lien sur une
+          ligne. La page tient avec un seul partenaire comme avec dix. */}
       <section className="bg-blanc py-16 md:py-24">
         <ul className="wrap">
           {partners.map((partner) => (
             <li
               key={partner.name}
-              className="grid gap-8 border-b border-gris-clair py-10 first:border-t md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] md:items-center md:gap-16 md:py-14"
+              className="grid gap-6 border-b border-gris-clair py-10 first:border-t md:grid-cols-[16rem_minmax(0,1fr)] md:items-center md:gap-10 lg:grid-cols-[20rem_minmax(0,1fr)] lg:gap-16"
             >
               <PartnerLogo partner={partner} />
 
-              <div>
-                <p className="eyebrow">{partner.category}</p>
-                <h2 className="mt-4 font-display text-[clamp(1.75rem,4vw,2.5rem)] font-extrabold uppercase leading-[1.05]">
-                  {partner.name}
-                </h2>
-                <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-gris-fonce md:text-base">
-                  {partner.text}
-                </p>
+              <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
+                <div className="min-w-0">
+                  <p className="eyebrow hyphens-auto wrap-break-word">{partner.category}</p>
+                  <h2 className="mt-3 font-display text-[clamp(1.75rem,4vw,2.5rem)] font-extrabold uppercase leading-[1.05]">
+                    {partner.name}
+                  </h2>
+                </div>
+
                 {partner.url && (
                   <a
                     href={partner.url}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="btn btn-dark mt-8"
+                    className="btn btn-dark shrink-0"
                   >
                     {p.visit}
                     <span aria-hidden="true">↗</span>
@@ -98,8 +99,8 @@ function PartnerLogo({ partner }: { partner: Partner }) {
           src={partner.logo}
           alt={partner.name}
           fill
-          sizes="(min-width: 768px) 40vw, 100vw"
-          className="object-contain p-10 md:p-14"
+          sizes="(min-width: 1024px) 20rem, (min-width: 768px) 16rem, 100vw"
+          className="object-contain p-10 md:p-7 lg:p-8"
         />
       ) : (
         <span

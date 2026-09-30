@@ -92,8 +92,7 @@ endroit, avec ses textes en français, anglais et allemand côte à côte :
   "name": "Kraftgras",
   "logo": "/images/partenaires/kraftgras.png",
   "url": { "fr": "https://kraftgras.ch/fr", "en": "https://kraftgras.ch/en", "de": "https://kraftgras.ch" },
-  "category": { "fr": "Partenaire nutrition", "en": "Nutrition partner", "de": "Ernährungspartner" },
-  "text": { "fr": "…", "en": "…", "de": "…" }
+  "category": { "fr": "Partenaire officiel nutrition", "en": "Official nutrition partner", "de": "Offizieller Ernährungspartner" }
 }
 ```
 
@@ -104,7 +103,7 @@ endroit, avec ses textes en français, anglais et allemand côte à côte :
   que `logo` vaut `null`, le nom du partenaire s'affiche à la place.
 - **Pas de site** : mettre `"url": null`, le bouton « Visiter le site » disparaît.
 
-`npm run typecheck` signale une langue oubliée dans `category`, `text` ou `url`.
+`npm run typecheck` signale une langue oubliée dans `category` ou `url`.
 
 ## Ajouter les photos
 
