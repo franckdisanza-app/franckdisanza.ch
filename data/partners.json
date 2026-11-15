@@ -12,5 +12,19 @@
       "en": "Official nutrition partner",
       "de": "Offizieller Ernährungspartner"
     }
+  },
+  {
+    "name": "Région de Nyon",
+    "logo": "/images/partenaires/region-de-nyon.svg",
+    "url": {
+      "fr": "https://regiondenyon.ch/",
+      "en": "https://regiondenyon.ch/",
+      "de": "https://regiondenyon.ch/"
+    },
+    "category": {
+      "fr": "Partenaire officiel",
+      "en": "Official partner",
+      "de": "Offizieller Partner"
+    }
   }
 ]
