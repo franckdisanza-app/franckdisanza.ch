@@ -1,16 +1,16 @@
 [
   {
-    "name": "Kraftgras",
-    "logo": "/images/partenaires/kraftgras.png",
+    "name": "Unic Talent",
+    "logo": "/images/partenaires/unic-talent.png",
     "url": {
-      "fr": "https://kraftgras.ch/fr",
-      "en": "https://kraftgras.ch/en",
-      "de": "https://kraftgras.ch"
+      "fr": "https://www.unic-talent.ch/",
+      "en": "https://www.unic-talent.ch/",
+      "de": "https://www.unic-talent.ch/"
     },
     "category": {
-      "fr": "Partenaire officiel nutrition",
-      "en": "Official nutrition partner",
-      "de": "Offizieller Ernährungspartner"
+      "fr": "Partenaire officiel",
+      "en": "Official partner",
+      "de": "Offizieller Partner"
     }
   },
   {
@@ -25,6 +25,20 @@
       "fr": "Partenaire officiel",
       "en": "Official partner",
       "de": "Offizieller Partner"
+    }
+  },
+  {
+    "name": "Kraftgras",
+    "logo": "/images/partenaires/kraftgras.png",
+    "url": {
+      "fr": "https://kraftgras.ch/fr",
+      "en": "https://kraftgras.ch/en",
+      "de": "https://kraftgras.ch"
+    },
+    "category": {
+      "fr": "Partenaire officiel nutrition",
+      "en": "Official nutrition partner",
+      "de": "Offizieller Ernährungspartner"
     }
   }
 ]
